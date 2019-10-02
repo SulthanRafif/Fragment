@@ -25,10 +25,39 @@ public class DynamicActivity extends AppCompatActivity {
 
 
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.setCustomAnimations(R.anim.enter_from_left,R.anim.exit_from_left,R.anim.enter_from_left,R.anim.exit_from_right);
-        fragmentTransaction.replace(R.id.dynamic_fragment_placeholder,new RedFragment(),"RED_FRAGMENT");
-        fragmentTransaction.addToBackStack(null);
-        fragmentTransaction.commit();
+
+        RedFragment fragmentRed = (RedFragment) getSupportFragmentManager().findFragmentByTag("RED FRAGMENT");
+
+        if(fragmentRed != null && fragmentRed.isVisible()){
+//            kosong
+        }
+
+        else{
+            // Menambah efek animasi
+//             fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+
+            // Menambahkan efek custom
+            fragmentTransaction.setCustomAnimations(R.anim.enter_from_left,R.anim.exit_from_left,R.anim.enter_from_left,R.anim.exit_from_right);
+
+            // Menentukan fragment yang akan dituju
+            fragmentTransaction.replace(R.id.dynamic_fragment_placeholder, new RedFragment(),"RED FRAGMENT");
+
+            // Untuk bisa kembali ke fragment sebelumnya
+            fragmentTransaction.addToBackStack(null);
+
+            // Menjalankan fragment
+            fragmentTransaction.commit();
+        }
+
+
+
+
+//        fragmentTransaction.setCustomAnimations(R.anim.enter_from_left,R.anim.exit_from_left,R.anim.enter_from_left,R.anim.exit_from_right);
+//        fragmentTransaction.replace(R.id.dynamic_fragment_placeholder,new RedFragment(),"RED_FRAGMENT");
+//        fragmentTransaction.addToBackStack(null);
+//        fragmentTransaction.commit();
+
+
 
 
     }
@@ -40,10 +69,40 @@ public class DynamicActivity extends AppCompatActivity {
 
 
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.setCustomAnimations(R.anim.enter_from_left,R.anim.exit_from_left,R.anim.enter_from_left,R.anim.exit_from_right);
-        fragmentTransaction.replace(R.id.dynamic_fragment_placeholder,new BlueFragment(),"BLUE_FRAGMENT");
-        fragmentTransaction.addToBackStack(null);
-        fragmentTransaction.commit();
+
+        BlueFragment fragmentBlue = (BlueFragment) getSupportFragmentManager().findFragmentByTag("BLUE FRAGMENT");
+
+        if(fragmentBlue != null && fragmentBlue.isVisible()){
+
+            // kosong
+        }
+
+        else{
+            // Menambahkan efek animasi
+//            fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+
+            // Menambahkan efek custom
+            fragmentTransaction.setCustomAnimations(R.anim.enter_from_left,R.anim.exit_from_left,R.anim.enter_from_left,R.anim.exit_from_right);
+
+            // Menentukan fragment yang akan dituju
+            fragmentTransaction.replace(R.id.dynamic_fragment_placeholder, new BlueFragment(), "BLUE FRAGMENT");
+
+            // Untuk bisa kembali ke fragment sebelumnya
+            fragmentTransaction.addToBackStack(null);
+
+            // Menjalankan fragment
+            fragmentTransaction.commit();
+
+        }
+
+
+
+
+
+//        fragmentTransaction.setCustomAnimations(R.anim.enter_from_left,R.anim.exit_from_left,R.anim.enter_from_left,R.anim.exit_from_right);
+//        fragmentTransaction.replace(R.id.dynamic_fragment_placeholder,new BlueFragment(),"BLUE_FRAGMENT");
+//        fragmentTransaction.addToBackStack(null);
+//        fragmentTransaction.commit();
 
 
     }
